@@ -1,0 +1,11 @@
+.*
+gradlew*
+!.gitignore
+bin/
+build/
+gradle.properties
+gradle/
+dist/
+settins.gradle
+src/main/webapp/META-INF/context.xml
+

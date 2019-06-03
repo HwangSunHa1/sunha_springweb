@@ -7,11 +7,11 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/header.jsp"%>
-	<h2>글 등록</h2>
+	<h2>메일 쓰기</h2>
 	<p>
-		<a href="./app/article/list">글 목록</a>
+		<a href="./app/members">회원 목록</a>
 	</p>
-	<form action="./app/article/add" method="post">
+	<form action="./app/letter/add" method="post">
 		<p>제목 :</p>
 		<p>
 			<input type="text" name="title" maxlength="100" style="width: 100%;" required>
@@ -21,8 +21,10 @@
 			<textarea name="content" style="width: 100%; height: 200px;" required></textarea>
 		</p>
 		<p>
-			<button type="submit">등록</button>
+			<button type="submit">전송</button>
 		</p>
+		<input type="hidden" name="receiverId" value="${param.receiverId }" />
+		<input type="hidden" name="receiverName" value="${param.receiverName }" />
 	</form>
 </body>
 </html>

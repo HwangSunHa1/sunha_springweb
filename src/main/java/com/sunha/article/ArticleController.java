@@ -60,7 +60,7 @@ public class ArticleController {
 	/**
 	 * 글 등록
 	 */
-	@PostMapping("/article/add")
+	@PostMapping("/article/s/add")
 	public String articleAdd(Article article, @SessionAttribute("MEMBER") Member member) {
 		
 		article.setUserId(member.getMemberId());
@@ -69,7 +69,7 @@ public class ArticleController {
 		return "redirect:/app/article/list";
 	}
 	
-	@GetMapping("/article/updateForm")
+	@GetMapping("/article/s/edit")
 	public void updateForm(@RequestParam("articleId") String articleId,
 			@SessionAttribute("MEMBER") Member member, Model model) {
 		Article article = articleDao.getArticle(articleId);
@@ -85,7 +85,7 @@ public class ArticleController {
 	/**
 	 * 글 수정
 	 */
-	@PostMapping("/article/update")
+	@PostMapping("/article/s/update")
 	public String update(Article article,
 			@SessionAttribute("MEMBER") Member member) {
 		article.setUserId(member.getMemberId());
@@ -102,7 +102,7 @@ public class ArticleController {
 	/**
 	 * 글 삭제
 	 */
-	@GetMapping("/article/delete")
+	@GetMapping("/article/s/delete")
 	public String delete(@RequestParam("articleId") String articleId,
 			@SessionAttribute("MEMBER") Member member) {
 		int updatedRows = articleDao.deleteArticle(articleId,
